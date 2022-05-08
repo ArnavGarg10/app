@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Happy+Monkey&family=Indie+Flower&family=Tangerine&display=swap" 
+        rel="stylesheet"> 
+        <style>
+            p {font-size: 40px;}
+            body {
+                text-align: left; background-image: linear-gradient(gold, orange, rgb(251, 128, 128));
+                background-repeat: no-repeat; background-size: contain; background-attachment: fixed; font-family: "Comfortaa";
+            }
+            #list {font-family: "Happy Monkey"; text-decoration-color: black;}
+            #box {font-family: "Happy Monkey";}
+            #buttonadd {font-family: "Happy Monkey";}
+        </style>
+        <body>
+            <script>
+                function addItem() {
+                    var newItem = document.createElement("div");
+                    newItem.innerHTML = document.getElementById("box").value;
+                    newItem.onclick = removeItem
+                    document.getElementById("list").appendChild(newItem)
+                    saveList();
+                }
+                function removeItem() {
+                    document.getElementById("list").removeChild(this);
+                    saveList();
+                }
+                function saveList(){
+                    localStorage.storedList = document.getElementById("list").innerHTML;
+                }
+                function loadList(){
+                    document.getElementById("list").innerHTML = localStorage.storedList;
+                    for(var i = 0; i < list.children.length; i++) {
+                        list.children[i].onclick = removeItem;
+                    }
+                }   
+            </script>
+            <p>To-Do List App📝</p>
+            <input type="text" id = "box" value="">
+            <br>
+            <input type="button" value="Add item"  id = "buttonadd" onclick=addItem();><br>
+            <div id = "list"> </div>
+            <script>
+                if (localStorage.storedList) {
+                    loadList()
+                }
+            </script>
+        </body>
+    </head>
+</html>
