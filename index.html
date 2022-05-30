@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>To-Do List</title>
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Happy+Monkey&family=Indie+Flower&family=Tangerine&display=swap" 
-        rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Happy+Monkey&family=Indie+Flower&family=Tangerine&display=swap"
+        rel="stylesheet">
         <link rel="icon" href="favicon(3).ico">
         <style>
             p {font-size: 40px;}
@@ -37,14 +37,16 @@
                     for(var i = 0; i < list.children.length; i++) {
                         list.children[i].onclick = removeItem;
                     }
-                }   
+                }
             </script>
+            <div style="margin:50px;">
             <p>To-Do List App📝</p>
-            <p style = "font-size:20px;">Click to remove items! Also, this app<br> will automatically store your tasks! You can also format your tasks<br> to fit the to-do list style!</p>
+            <p style = "font-size:20px;">Click to remove items! Also, this app will automatically store your tasks! You can also format your tasks to fit the to-do list style!</p>
             <input type="text" id = "box" value="">
             <br>
             <input type="button" value="Add item"  id = "buttonadd" onclick=addItem();><br>
             <div id = "list"> </div>
+          </div>
             <script>
                 if (localStorage.storedList) {
                     loadList()
